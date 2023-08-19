@@ -2,11 +2,6 @@
 Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing
 
 ## Domain Proyek
-Hewan merupakan makhluk hidup selalu ada di sekitar kita. Masyarakatpun banyak yang memelihara hewan peliharaan terutama anjing dan kucing, karena memiliki karakter dan fungsi yang
-beragam dan menyenangkan manusia. Pada pengolahan citra, proses pengklasifikasian objek merupakan salah satu bagian permasalahan dalam computer Vision. Tujuan pengklasifikasian citra ini
-adalah proses memasukkan citra kedalam beberapa kategori yang disesuaikan dengan kebutuhan. Ide dari pengklasifikasian citra yang spesifik dengan memberi masukkan dari sekumpulan angka 
-yang diproses dan menghasilkan angka yang merupakan representasi dari kategori citra tersebut, dan hasil dari klasifikasi citra digital dapat menjadi alternatif dalam mengenali hewan.
-Selain itu proses mengklasifikasikan citra anjing dan kucing ini diharapkan adalah komputer dapat mengenali dan membedakan objek pada citra selayaknya manusia.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Penyelesaian menentukan citra atau objen kucing dan anjing tersebut dengan cara membuat program dengan cnn yang dapat mengenali bentuk hewan kucing dan anjing.
@@ -36,50 +31,48 @@ Menjelaskan tujuan dari pernyataan masalah:
 dataset dalam mengkategorikan anjing dan kucing. Selanjutnya penulis menggunakan dataset yang telah diperoleh untuk mendapatkan data yang dapat dilatih dari
 total data yang didapatkan
 
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/7f1e9a81-16f0-48ab-80a4-7327a2cc5072)
 
 - Menvisualisasikan grafik keakuratan pada proses training hingga validasi data yang diperoleh. Dan menggunakan Callback untuk mengurangi overftting
 - % capaian akurasi berhenti ketika 80 sesuai target callback
-- ![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/51278977-3994-4f31-8657-30ed102f43ef)
-- 
 
 ## Data Understanding
-data yang digunakan mengimport dari kaggle https://www.kaggle.com/datasets/tongpython/cat-and-dog
+data yang digunakan mengimport dari kaggle, dataset terdiri dari dua kategori, yaitu anjing dan kucing. kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar
+https://www.kaggle.com/datasets/tongpython/cat-and-dog
+
+
 
 ### Variabel-variabel pada cats and dog dataset adalah sebagai berikut:
 - cats : merupakan hewan jenis kucing
 - dogs : merupakan hewan jenis anjing
 
 ## Data Preparation
-1. Mengambil beberapa libraries yang
-dapat mendeteksi gambar.
-2. mengimport dataset dari google drive
-3. menentukan direktori
-4. menampilkan jumlah gambar
-5. Menggunakan dataset untuk
-mengkategorikan anjing dan kucing.
-6. Menkonversikan kolom kategori
-menjadi tipe data string.
-7. Menerapkan image generator dalam
-proses klasifikasi dengan menggunakan
-gambar
-8. menggunakan model cnn
-9. menentukan callback
-10. menentukan model fit
-11. Menvisualisasikan grafik keakuratan
-pada proses training hingga validasi
-data yang diperoleh.
+Mengapa menggunakan image generator?
+Karena Image generator digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. Image generator dapat membantu masalah pengolahan data, mampu membuat membuat gambar tambahan dari yang sudah ada, dan dapat membantu melatih model pembelajaran mesin. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. image generator juga dapat digunakan untuk membuat representasi visual dari data, seperti grafik. kita bisa memanggilnya dengan cara import imagedatagenerator seperti contoh kode ini, 
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+Dan nantinya ukuran data bisa dirubah, seperti contoh kode dibawah
+train_datagen = ImageDataGenerator(
+    rescale = 1./255, 
+    rotation_range = 20,                                                   
+    shear_range = 0.2,                                                           
+    fill_mode = 'nearest',                                                       
 
 
 ## Modeling
-menetukan model cnn
+membuat model cnn
  #Membentuk model sequential
-Model = tf.keras.models.Sequential([                                                
+Model = tf.keras.models.Sequential([   
+tf.keras.layers.Conv2D(32, (3,3), activation = 'relu', input_shape= (150,150,3)),  membuat 3 layer convolusional yang digunakan untuk memproses input data yang nantinya akan diekstrak ke dalam matriks, menggunakan fungsi activasi relu untuk memproses inputan yang diinput fungsi convisional, dan bentuk input, gambar dengan ukuran 150x150 dengan 3 byte, dan membuat layer maxpooling
+tf.keras.layers.MaxPooling2D(2,2),                           
+tf.keras.layers.Flatten(),  digunakan untuk membuat data flat dan digunakan untuk input data selanjutnya
+tf.keras.layers.Dropout(0.5), layer dropout untuk mencegah terjadinya overfitting
+tf.keras.layers.Dense(64, activation= 'relu'), 
+layer play menggunakan hidden layer dengan fungsi activation relu
+tf.keras.layers.Dense(2, activation= 'sigmoid')                                   layer output menggunakan fungsi sigomid dengan banyak output 2 
 membentuk model summary
-dan melakukan komplikasi model
-model.compile(loss='binary_crossentropy',                                         #Loss function Yang digunakan untuk Klasifikasi binary tidak Lebih Dari 2
-              optimizer=tf.optimizers.Adam(),                                     #Fungsi optimizer 'adam'
-              metrics=['accuracy'])                                               #Menampilkan akurasi model training
+dan melakukan komplikasi model menggunakanfungsi optimizer adam yang digunakan untuk mengupdate iterasinya supaya lebih cepat mencapai titik yang lebih optimal
+model.compile(loss='binary_crossentropy',                                        
+              optimizer=tf.optimizers.Adam(),                                     
+              metrics=['accuracy'])                                              
 
 ## Evaluation
 evaluasi akurasi dengan menentukan nilai akurasi training dan validasi
