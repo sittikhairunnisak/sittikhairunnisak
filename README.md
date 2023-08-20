@@ -59,7 +59,7 @@ train_datagen = ImageDataGenerator(
 
 ## Modeling
 membuat model cnn
- #Membentuk model sequential
+#Membentuk model sequential
 Model = tf.keras.models.Sequential([   
 tf.keras.layers.Conv2D(32, (3,3), activation = 'relu', input_shape= (150,150,3)),  membuat 3 layer convolusional yang digunakan untuk memproses input data yang nantinya akan diekstrak ke dalam matriks, menggunakan fungsi activasi relu untuk memproses inputan yang diinput fungsi convisional, dan bentuk input, gambar dengan ukuran 150x150 dengan 3 byte, dan membuat layer maxpooling
 tf.keras.layers.MaxPooling2D(2,2),                           
@@ -67,12 +67,25 @@ tf.keras.layers.Flatten(),  digunakan untuk membuat data flat dan digunakan untu
 tf.keras.layers.Dropout(0.5), layer dropout untuk mencegah terjadinya overfitting
 tf.keras.layers.Dense(64, activation= 'relu'), 
 layer play menggunakan hidden layer dengan fungsi activation relu
-tf.keras.layers.Dense(2, activation= 'sigmoid')                                   layer output menggunakan fungsi sigomid dengan banyak output 2 
+tf.keras.layers.Dense(2, activation= 'sigmoid')                                   
+Lapisan tambahan ditambahkan ke model. Lapisan Flatten digunakan untuk meratakan output, diikuti oleh lapisan Dropout untuk mengurangi overfitting. Kemudian, dua lapisan yang terhubung sepenuhnya (Padat) dengan fungsi aktivasi rel ditambahkan, dan lapisan keluaran akhir dengan aktivasi sigmoid ditambahkan dengan 2 unit yang mewakili dua kelas (kucing dan anjing).
+
 membentuk model summary
-dan melakukan komplikasi model menggunakanfungsi optimizer adam yang digunakan untuk mengupdate iterasinya supaya lebih cepat mencapai titik yang lebih optimal
+dan melakukan komplikasi model menggunakan fungsi optimizer adam yang digunakan untuk mengupdate iterasinya supaya lebih cepat mencapai titik yang lebih optimal
 model.compile(loss='binary_crossentropy',                                        
               optimizer=tf.optimizers.Adam(),                                     
-              metrics=['accuracy'])                                              
+              metrics=['accuracy'])  
+              
+    history= model.fit(
+    train_generator,                                                              
+    steps_per_epoch = 40,                                                         
+    epochs = 40,                                                                  
+    validation_data = validation_generator,                                       
+    validation_steps = 2,                                                        
+    verbose =2,
+    callbacks=[callbacks])
+Model dilatih menggunakan fungsi fit
+Data pelatihan disediakan oleh train_generator, dan data validasi disediakan oleh validasi_generator. Pelatihan dihentikan jika akurasi pelatihan dan validasi melebihi 0,80, seperti yang ditentukan dalam callback.
 
 ## Evaluation
 Tujuan visualisasi ini adalah untuk membantu memahami bagaimana model berkembang selama pelatihan. Kita dapat mengamati apakah model cenderung overfit atau underfit, serta mengkaji tren akurasi dan loss untuk setiap epoch. Visualisasi ini juga dapat membantu dalam pemilihan parameter dan pengambilan keputusan terkait dengan model.
