@@ -2,16 +2,19 @@
 Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing
 
 ## Domain Proyek
+Hewan merupakan makhluk hidup selalu ada di sekitar kita. Masyarakatpun banyak yang memelihara hewan peliharaan terutama anjing dan kucing, karena memiliki karakter dan fungsi yang beragam dan menyenangkan manusia. Pada pengolahan citra, proses pengklasifikasian objek merupakan salah satu bagian permasalahan dalam computer Vision. Tujuan pengklasifikasian citra ini adalah proses memasukkan citra kedalam beberapa kategori yang disesuaikan dengan kebutuhan. Ide dari pengklasifikasian citra yang spesifik dengan memberi masukkan dari sekumpulan angka yang diproses dan menghasilkan angka yang merupakan representasi dari kategori citra tersebut, dan hasil dari klasifikasi citra digital dapat menjadi alternatif dalam mengenali hewan. Selain itu proses mengklasifikasikan citra anjing dan kucing ini diharapkan adalah komputer dapat mengenali dan membedakan objek pada citra selayaknya manusia.
+Pengenalan wajah menggunakan machine learning sangat penting. Dengan menggunakan machine learning, teknologi pengenalan wajah dapat mencapai tingkat akurasi yang tinggi dalam mengenali wajah hewan (kucing dan anjing) atau wajah seseorang. Algoritma machine learning seperti neural network dapat meniru proses otak manusia dalam mengenali fitur-fitur khusus pada wajah, seperti jarak antara mata, tinggi dahi, lebar hidung, dan sebagainya. Algoritma facial recognition dirancang untuk memetakan fitur wajah seseorang secara matematis.
+selain itu Teknologi pengenalan wajah menggunakan machine learning dapat diterapkan dalam berbagai bidang, seperti keamanan, pengenalan identitas, sehingga dapat digunakan untuk mendeteksi ancaman dan memprediksi risiko keamanan.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Penyelesaian menentukan citra atau objen kucing dan anjing tersebut dengan cara membuat program dengan cnn yang dapat mengenali bentuk hewan kucing dan anjing.
 - Penambahan dataset yang digunakan untuk training dengan resolusi gambar yang bagus dapat membuat model yang dipakai lebih baik dan mengurangi overfitting
-  
-  Format Referensi:  [Klasifikasi citra anjing dan kucing menggunakan metode convolutional neural network (CNN)]
+  Format Referensi:  
   (Riyadi, A. S., Wardhani, I. P., & Widayati, S. (2021, September). Klasifikasi citra anjing dan kucing menggunakan metode convolutional neural network (CNN). In Prosiding Seminar SeNTIK (Vol. 5, No. 1, pp. 307-311).) 
 
 ## Business Understanding
-
+apa dampak positif dari pemecahan masalah pengenalan wajah hewan pada  pemilik hewan peliharaan?
+dampak positifnya adalah adalah dapat memudahkan dalam memantau aktivitas anjing atau kucing mereka secara real-time. Hal ini dapat membantu pemilik hewan peliharaan untuk memastikan bahwa hewan peliharaan mereka aman dan tidak melakukan hal-hal yang tidak diinginkan, dan juga meningkatkan keamanan, jadi pemilik hewan peliharaan dapat memastikan bahwa hanya anjing atau kucing mereka yang dapat masuk ke dalam rumah atau area tertentu. Hal ini dapat membantu mencegah anjing atau kucing yang tidak diinginkan masuk ke dalam rumah dan mengganggu hewan peliharaan yang ada di dalamnya. dan dengan penerapan teknologi pengenalan otomatis menggunakan machine learning, diharapkan dapat memberikan kemudahan, keamanan, dan kenyamanan bagi pemilik hewan peliharaan dalam merawat dan memantau aktivitas hewan peliharaan mereka.
 
 ### Problem Statements
 - bagaimana proses klasifikasi dengan CNN mampu menghasilkan deteksi objek citra anjing dan kucing serta membedakan modelnya?
@@ -26,10 +29,16 @@ total data yang didapatkan
 - % capaian akurasi berhenti ketika 80 sesuai target callback
 
 ## Data Understanding
-data yang digunakan mengimport dari kaggle, dataset terdiri dari dua kategori, yaitu anjing dan kucing. kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar
-https://www.kaggle.com/datasets/tongpython/cat-and-dog
-
-
+data yang digunakan mengimport dari kaggle, https://www.kaggle.com/datasets/tongpython/cat-and-dog
+dataset terdiri dari dua kategori, yaitu anjing dan kucing. kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar
+print('Jumlah total gambar cats:', len(os.listdir(cats_dir)))                   
+print('Jumlah total gambar dogs:', len(os.listdir(dogs_dir)))                     
+Jumlah total gambar cats: 1011
+Jumlah total gambar dogs: 1015
+Dataset terdiri dari sejumlah gambar kucing dan anjing. Jumlah pasti gambar dalam kumpulan data dapat bervariasi dan bergantung pada ukuran kumpulan data yang digunakan. 
+Setiap data dalam kumpulan data direpresentasikan dalam format file gambar seperti JPEG atau PNG. Setiap gambar memiliki ukuran dan resolusi yang berbeda.
+contoh visualisasi kucing  alam dataset pengenalan otomatis anjing dan kucing menggunakan teknologi machine learning yang spesifik.
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/70e72744-0d42-4959-9393-489768df685d)
 
 ### Variabel-variabel pada cats and dog dataset adalah sebagai berikut:
 - cats : merupakan hewan jenis kucing
