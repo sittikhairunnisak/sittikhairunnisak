@@ -31,11 +31,7 @@ total data yang didapatkan
 
 ## Data Understanding
 data yang digunakan mengimport dari kaggle, https://www.kaggle.com/datasets/tongpython/cat-and-dog
-dataset terdiri dari dua kategori, yaitu anjing dan kucing. kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar
-print('Jumlah total gambar cats:', len(os.listdir(cats_dir)))                   
-print('Jumlah total gambar dogs:', len(os.listdir(dogs_dir)))                     
-Jumlah total gambar cats: 1011
-Jumlah total gambar dogs: 1015
+dataset terdiri dari dua kategori, yaitu anjing dan kucing. kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar    
 Dataset terdiri dari sejumlah gambar kucing dan anjing. Jumlah pasti gambar dalam kumpulan data dapat bervariasi dan bergantung pada ukuran kumpulan data yang digunakan. 
 Setiap data dalam kumpulan data direpresentasikan dalam format file gambar seperti JPEG atau PNG. Setiap gambar memiliki ukuran dan resolusi yang berbeda.
 ontoh visualisasi kucing ini merupakan bagian dari evaluation.
@@ -47,56 +43,20 @@ ontoh visualisasi kucing ini merupakan bagian dari evaluation.
 
 ## Data Preparation
 Mengapa menggunakan image generator?
-Karena Image generator digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. Image generator dapat membantu masalah pengolahan data, mampu membuat membuat gambar tambahan dari yang sudah ada. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. Langkah pertama adalah mengimpor pustaka yang diperlukan dengan cara import imagedatagenerator seperti contoh kode ini, 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-
+Karena Image generator digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. Image generator dapat membantu masalah pengolahan data, mampu membuat membuat gambar tambahan dari yang sudah ada. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. Langkah pertama adalah mengimpor pustaka yang diperlukan dengan cara import imagedatagenerator.
 tensorflow untuk membuat dan melatih model.
 ImageDataGenerator dari tensorflow.keras.preprocessing.image untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi.
-dan menggunakan ImageDataGenerator untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi rescaling, rotation, horizontal dan vertical shift, shearing, zooming, dan horizontal flipping.
-train_datagen = ImageDataGenerator(
-    rescale = 1./255,
-    rotation_range = 20,                                                        
-    horizontal_flip = True,                                                     
-    shear_range = 0.2,                                                          
-    fill_mode = 'nearest',                                                       
-    width_shift_range = 0.2,                                                   
-    height_shift_range = 0.2,                                                    
-    zoom_range = 0.1,                                                       
+dan menggunakan ImageDataGenerator untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi rescaling, rotation, horizontal dan vertical shift, shearing, zooming, dan horizontal flipping.                                           
 Setelah itu, Anda menggunakan flow_from_directory untuk membuat generator pelatihan dan validasi. kita menentukan class_mode='categorical' untuk menghasilkan label kategori yang disandikan satu-panas. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target_size.
-train_generator = train_datagen.flow_from_directory(                              
-    train_dir,                                                                    
-    target_size=(150,150),                                                      
-    batch_size = 32,
-    class_mode ='categorical'
- )
  
 ## Modeling
 membuat model cnn
-#Membentuk model sequential
-Model = tf.keras.models.Sequential([   
-tf.keras.layers.Conv2D(32, (3,3), activation = 'relu', input_shape= (150,150,3)),  membuat 3 layer convolusional yang digunakan untuk memproses input data yang nantinya akan diekstrak ke dalam matriks, menggunakan fungsi activasi relu untuk memproses inputan yang diinput fungsi convisional, dan bentuk input, gambar dengan ukuran 150x150 dengan 3 byte, dan membuat layer maxpooling
-tf.keras.layers.MaxPooling2D(2,2),                           
-tf.keras.layers.Flatten(),  digunakan untuk membuat data flat dan digunakan untuk input data selanjutnya
-tf.keras.layers.Dropout(0.5), layer dropout untuk mencegah terjadinya overfitting
-tf.keras.layers.Dense(64, activation= 'relu'), 
-layer play menggunakan hidden layer dengan fungsi activation relu
-tf.keras.layers.Dense(2, activation= 'sigmoid')                                   
+#Membentuk model sequential                       
 Lapisan tambahan ditambahkan ke model. Lapisan Flatten digunakan untuk meratakan output, diikuti oleh lapisan Dropout untuk mengurangi overfitting. Kemudian, dua lapisan yang terhubung sepenuhnya (Padat) dengan fungsi aktivasi rel ditambahkan, dan lapisan keluaran akhir dengan aktivasi sigmoid ditambahkan dengan 2 unit yang mewakili dua kelas (kucing dan anjing).
 
 membentuk model summary
 dan melakukan komplikasi model menggunakan fungsi optimizer adam yang digunakan untuk mengupdate iterasinya supaya lebih cepat mencapai titik yang lebih optimal
-model.compile(loss='binary_crossentropy',                                        
-              optimizer=tf.optimizers.Adam(),                                     
-              metrics=['accuracy'])  
-              
-    history= model.fit(
-    train_generator,                                                              
-    steps_per_epoch = 40,                                                         
-    epochs = 40,                                                                  
-    validation_data = validation_generator,                                       
-    validation_steps = 2,                                                        
-    verbose =2,
-    callbacks=[callbacks])
+
 Model dilatih menggunakan fungsi fit
 Data pelatihan disediakan oleh train_generator, dan data validasi disediakan oleh validasi_generator. Pelatihan dihentikan jika akurasi pelatihan dan validasi melebihi 0,80, seperti yang ditentukan dalam callback.
 
