@@ -77,4 +77,14 @@ model.compile(loss='binary_crossentropy',
 ## Evaluation
 Tujuan visualisasi ini adalah untuk membantu memahami bagaimana model berkembang selama pelatihan. Kita dapat mengamati apakah model cenderung overfit atau underfit, serta mengkaji tren akurasi dan loss untuk setiap epoch. Visualisasi ini juga dapat membantu dalam pemilihan parameter dan pengambilan keputusan terkait dengan model.
 
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/30c11a2b-fa09-4e3c-9057-3ae8f8bc1c12)
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/c5feb981-0fea-463e-9ee8-ba9fcac959c7)
+
+Kode di atas digunakan untuk membuat plot yang menunjukkan perubahan akurasi dan loss model selama pelatihan.
+Pertama, kami menggunakan plt.plot() untuk membuat plot garis untuk akurasi pelatihan (History.history['accuracy']) dan akurasi validasi (History.history['val_accuracy']).
+Kemudian, plt.title() digunakan untuk memberikan judul plot sebagai "Akurasi Model".
+Selanjutnya, plt.legend() digunakan untuk menampilkan legenda ("train" dan "test") di pojok kiri atas plot.
+Terakhir, plt.show() digunakan untuk menampilkan plot akurasi.
+Dengan menggunakan kode ini, kita dapat memvisualisasikan perubahan akurasi dan loss model selama pelatihan dengan plot yang disajikan. Plot ini membantu kami menganalisis dan memahami performa model secara visual.
+
 **---Ini adalah bagian akhir laporan---**
