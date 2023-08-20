@@ -75,6 +75,6 @@ model.compile(loss='binary_crossentropy',
               metrics=['accuracy'])                                              
 
 ## Evaluation
-evaluasi akurasi dengan menentukan nilai akurasi training dan validasi
+Tujuan visualisasi ini adalah untuk membantu memahami bagaimana model berkembang selama pelatihan. Kita dapat mengamati apakah model cenderung overfit atau underfit, serta mengkaji tren akurasi dan loss untuk setiap epoch. Visualisasi ini juga dapat membantu dalam pemilihan parameter dan pengambilan keputusan terkait dengan model.
 
 **---Ini adalah bagian akhir laporan---**
