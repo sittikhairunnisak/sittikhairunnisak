@@ -12,26 +12,16 @@ Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
 
 ### Problem Statements
-
-Menjelaskan pernyataan masalah latar belakang:
 - bagaimana proses klasifikasi dengan CNN mampu menghasilkan deteksi objek citra anjing dan kucing serta membedakan modelnya?
 - Bagaimana penggunaan dataset training dengan resolusi citra (gambar) yang bagus dapat membuat model yang dipakai lebih baik dan mengurangi overfitting?
 - Berapa % capaian akurasi dan presisi sistem klasifikasi terhadap penganalan anjing dan kucing ?
 
-
 ### Goals
-
-Menjelaskan tujuan dari pernyataan masalah:
 - langkah-langkah yaitu import beberapa libraries yang dapat mendeteksi gambar. Lalu mendefinisikan ukuran gambar yang ingin diterapkan. Selanjutnya menggunakan
 dataset dalam mengkategorikan anjing dan kucing. Selanjutnya penulis menggunakan dataset yang telah diperoleh untuk mendapatkan data yang dapat dilatih dari
 total data yang didapatkan
-
-
 - Menvisualisasikan grafik keakuratan pada proses training hingga validasi data yang diperoleh. Dan menggunakan Callback untuk mengurangi overftting
 - % capaian akurasi berhenti ketika 80 sesuai target callback
 
@@ -47,16 +37,29 @@ https://www.kaggle.com/datasets/tongpython/cat-and-dog
 
 ## Data Preparation
 Mengapa menggunakan image generator?
-Karena Image generator digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. Image generator dapat membantu masalah pengolahan data, mampu membuat membuat gambar tambahan dari yang sudah ada, dan dapat membantu melatih model pembelajaran mesin. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. image generator juga dapat digunakan untuk membuat representasi visual dari data, seperti grafik. kita bisa memanggilnya dengan cara import imagedatagenerator seperti contoh kode ini, 
+Karena Image generator digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. Image generator dapat membantu masalah pengolahan data, mampu membuat membuat gambar tambahan dari yang sudah ada. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. Langkah pertama adalah mengimpor pustaka yang diperlukan dengan cara import imagedatagenerator seperti contoh kode ini, 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-Dan nantinya ukuran data bisa dirubah, seperti contoh kode dibawah
+
+tensorflow untuk membuat dan melatih model.
+ImageDataGenerator dari tensorflow.keras.preprocessing.image untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi.
+dan menggunakan ImageDataGenerator untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi rescaling, rotation, horizontal dan vertical shift, shearing, zooming, dan horizontal flipping.
 train_datagen = ImageDataGenerator(
-    rescale = 1./255, 
-    rotation_range = 20,                                                   
-    shear_range = 0.2,                                                           
+    rescale = 1./255,
+    rotation_range = 20,                                                        
+    horizontal_flip = True,                                                     
+    shear_range = 0.2,                                                          
     fill_mode = 'nearest',                                                       
-
-
+    width_shift_range = 0.2,                                                   
+    height_shift_range = 0.2,                                                    
+    zoom_range = 0.1,                                                       
+Setelah itu, Anda menggunakan flow_from_directory untuk membuat generator pelatihan dan validasi. kita menentukan class_mode='categorical' untuk menghasilkan label kategori yang disandikan satu-panas. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target_size.
+train_generator = train_datagen.flow_from_directory(                              
+    train_dir,                                                                    
+    target_size=(150,150),                                                      
+    batch_size = 32,
+    class_mode ='categorical'
+ )
+ 
 ## Modeling
 membuat model cnn
 #Membentuk model sequential
