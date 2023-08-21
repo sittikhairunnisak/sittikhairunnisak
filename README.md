@@ -55,8 +55,8 @@ Data pelatihan disediakan oleh train_generator, dan data validasi disediakan ole
 ## Evaluation
 Tujuan visualisasi ini adalah untuk membantu memahami bagaimana model berkembang selama pelatihan. Kita dapat mengamati apakah model cenderung _overfit_ atau _underfit_, serta mengkaji tren akurasi dan loss untuk setiap epoch. Visualisasi ini juga dapat membantu dalam pemilihan parameter dan pengambilan keputusan terkait dengan model.
 penjelasan kode:
-Kode di atas digunakan untuk membuat plot yang menunjukkan perubahan akurasi dan loss model selama pelatihan.
-Pertama, kami menggunakan plt.plot() untuk membuat plot garis untuk akurasi pelatihan (History.history['accuracy']) dan akurasi validasi (History.history['val_accuracy']).
+untuk membuat plot yang menunjukkan perubahan akurasi dan loss model selama pelatihan.
+Pertama, kami menggunakan plt.plot() untuk membuat plot garis untuk akurasi pelatihan dan akurasi validasi 
 Kemudian, plt.title() digunakan untuk memberikan judul plot sebagai "Akurasi Model".
 Selanjutnya, plt.legend() digunakan untuk menampilkan legenda ("train" dan "test") di pojok kiri atas plot.
 Terakhir, plt.show() digunakan untuk menampilkan plot akurasi.
