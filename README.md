@@ -6,6 +6,7 @@ Hewan merupakan makhluk hidup selalu ada di sekitar kita. Masyarakatpun banyak y
 
 Pengenalan wajah menggunakan machine learning sangat penting. Dengan menggunakan machine learning, teknologi pengenalan wajah dapat mencapai tingkat akurasi yang tinggi dalam mengenali wajah hewan (kucing dan anjing) atau wajah seseorang. Algoritma machine learning seperti _neural network_ dapat meniru proses otak manusia dalam mengenali fitur-fitur khusus pada wajah, seperti jarak antara mata, tinggi dahi, lebar hidung, dan sebagainya. Algoritma _facial recognition_ dirancang untuk memetakan fitur wajah seseorang secara matematis.
 selain itu Teknologi pengenalan wajah menggunakan machine learning dapat diterapkan dalam berbagai bidang, seperti keamanan, pengenalan identitas, sehingga dapat digunakan untuk mendeteksi ancaman dan memprediksi risiko keamanan.
+
 Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung.
 
 ## Business Understanding
@@ -34,7 +35,9 @@ penjelasan kode:
 Menentukan direktori, dari isi folder yaitu bahan, latih dan validasi, lalu anda print jumlah dataset yang terdiri dari dua kategori, yaitu anjing dan kucing, akan muncul keterangan kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar.    
 Dataset terdiri dari sejumlah gambar kucing dan anjing. Jumlah pasti gambar dalam kumpulan data dapat bervariasi dan bergantung pada ukuran kumpulan data yang digunakan. 
 Setiap data dalam kumpulan data direpresentasikan dalam format file gambar seperti JPEG atau PNG. Setiap gambar memiliki ukuran dan resolusi yang berbeda.
+
 contoh visualisasi kucing ini merupakan bagian dari evaluation.
+
 ![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/70e72744-0d42-4959-9393-489768df685d) 
 (gambar 2)
 
@@ -55,11 +58,11 @@ Data _Image generator_ digunakan untuk membuat gambar dari teks atau input data 
 
 penjelasan kode:
 tensorflow untuk membuat dan melatih model.
-ImageDataGenerator dari tensorflow.keras.preprocessing.image untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi.
-dan menggunakan _ImageDataGenerator _untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi _rescaling_, _rotation_, _horizontal_ dan _vertical_,_ shearing_, _zooming_,_ width_shift_range_ dan , _height_shift_range_.              Setelah itu, Anda menggunakan flow_from_directory untuk membuat generator pelatihan dan validasi. kita menentukan _class_mode_ yaitu _'categorical_' untuk menghasilkan label kategori yang disandikan satu-panas. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target_size.
+ImageDataGenerator dari tensorflow.keras.preprocessing.image untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi dan menggunakan _ImageDataGenerator _untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi _rescaling_, _rotation_, _horizontal_ dan _vertical_,_ shearing_, _zooming_,_ width_shift_range_ dan , _height_shift_range_.     Setelah itu, Anda menggunakan flow_from_directory untuk membuat generator pelatihan dan validasi. kita menentukan _class_mode_ yaitu _'categorical_' untuk menghasilkan label kategori yang disandikan satu-panas. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target_size.
  
 ## Modeling
 membuat model cnn
+
 ![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/843970a6-7f08-4b92-a15d-532505e96160) 
 (gambar 6)         
 
