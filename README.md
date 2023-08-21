@@ -28,19 +28,10 @@ total data yang didapatkan
 
 ## Data Understanding
 data yang digunakan mengimport dari kaggle, https://www.kaggle.com/datasets/tongpython/cat-and-dog
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/118ed360-c953-45b6-ab08-ebac7351e16f) 
-(gambar 1) 
-
 penjelasan kode:
-Menentukan direktori, dari isi folder yaitu bahan, latih dan validasi, lalu anda print jumlah dataset yang terdiri dari dua kategori, yaitu anjing dan kucing, akan muncul keterangan kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar.    
+pertama anda Menentukan direktori, dari isi folder, dari folder yang saya itu ada tiga yaitu bahan, latih dan validasi, lalu anda print jumlah dataset yang terdiri dari dua kategori, yaitu anjing dan kucing, akan muncul keterangan kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar.    
 Dataset terdiri dari sejumlah gambar kucing dan anjing. Jumlah pasti gambar dalam kumpulan data dapat bervariasi dan bergantung pada ukuran kumpulan data yang digunakan. 
 Setiap data dalam kumpulan data direpresentasikan dalam format file gambar seperti JPEG atau PNG. Setiap gambar memiliki ukuran dan resolusi yang berbeda.
-
-contoh gambar anjing.
-
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/b0b1cd14-57c2-4a24-9119-370aae1aa25a)
-
-(gambar 2)
 
 ### Variabel-variabel pada cats and dog dataset adalah sebagai berikut:
 Variabel dalam kumpulan data adalah gambar yang berupa kucing atau anjing. Gambar tersebut digunakan untuk melatih dan menguji algoritme pembelajaran mesin untuk mengklasifikasikan apakah suatu gambar berisi kucing atau anjing
@@ -49,45 +40,20 @@ Variabel dalam kumpulan data adalah gambar yang berupa kucing atau anjing. Gamba
 
 ## Data Preparation
 Data _Image generator_ digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. _Image generator_ dapat membantu masalah pengolahan data, mampu membuat gambar tambahan dari yang sudah ada. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. Langkah pertama adalah mengimpor pustaka yang diperlukan dengan cara import _imagedatagenerator._
-
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/22bff0f8-0cf4-4811-b374-b494ffc9dda8)
-(gambar 3)
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/6609b03c-7993-4908-89a9-1971de3a7c18)
-(gambar 4)
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/ae1628be-a4bd-4fbd-8f4b-3e760bec2251) 
-(gambar 5)
-
 penjelasan kode:
 tensorflow untuk membuat dan melatih model.
 ImageDataGenerator dari tensorflow.keras.preprocessing.image untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi dan menggunakan _ImageDataGenerator _untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi _rescaling_, _rotation_, _horizontal_ dan _vertical_,_ shearing_, _zooming_,_ width_shift_range_ dan , _height_shift_range_.     Setelah itu, Anda menggunakan flow_from_directory untuk membuat generator pelatihan dan validasi. kita menentukan _class_mode_ yaitu _'categorical_' untuk menghasilkan label kategori yang disandikan satu-panas. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target_size.
  
 ## Modeling
 membuat model cnn
-
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/843970a6-7f08-4b92-a15d-532505e96160) 
-(gambar 6)         
-
 penjelasan kode:
 Lapisan tambahan ditambahkan ke model. Lapisan _Flatten _digunakan untuk meratakan output, diikuti oleh lapisan _Dropout_ untuk mengurangi overfitting. Kemudian, dua lapisan yang terhubung sepenuhnya (Padat) dengan fungsi aktivasi rel ditambahkan, dan lapisan keluaran akhir dengan aktivasi sigmoid ditambahkan dengan 2 unit yang mewakili dua kelas (kucing dan anjing).
-
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/c3ba35be-d16d-4f4f-b3bf-9e820d160d19) 
-(gambar 7)
-
-penjelasan kode:
 melakukan komplikasi model menggunakan fungsi optimizer adam yang digunakan untuk mengupdate iterasinya supaya lebih cepat mencapai titik yang lebih optimal
 Model dilatih menggunakan fungsi fit
 Data pelatihan disediakan oleh train_generator, dan data validasi disediakan oleh validasi_generator. Pelatihan dihentikan jika akurasi pelatihan dan validasi melebihi 0,80, seperti yang ditentukan dalam _callback_.
 
 ## Evaluation
 Tujuan visualisasi ini adalah untuk membantu memahami bagaimana model berkembang selama pelatihan. Kita dapat mengamati apakah model cenderung _overfit_ atau _underfit_, serta mengkaji tren akurasi dan loss untuk setiap epoch. Visualisasi ini juga dapat membantu dalam pemilihan parameter dan pengambilan keputusan terkait dengan model.
-
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/30c11a2b-fa09-4e3c-9057-3ae8f8bc1c12) 
-(gambar 8)
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/c5feb981-0fea-463e-9ee8-ba9fcac959c7) 
-(gambar 9)
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/e69f94fb-8cc8-42a3-9447-ac3515643581)
-(gambar 10)
-
 penjelasan kode:
 Kode di atas digunakan untuk membuat plot yang menunjukkan perubahan akurasi dan loss model selama pelatihan.
 Pertama, kami menggunakan plt.plot() untuk membuat plot garis untuk akurasi pelatihan (History.history['accuracy']) dan akurasi validasi (History.history['val_accuracy']).
@@ -95,16 +61,6 @@ Kemudian, plt.title() digunakan untuk memberikan judul plot sebagai "Akurasi Mod
 Selanjutnya, plt.legend() digunakan untuk menampilkan legenda ("train" dan "test") di pojok kiri atas plot.
 Terakhir, plt.show() digunakan untuk menampilkan plot akurasi.
 Dengan menggunakan kode ini, kita dapat memvisualisasikan perubahan akurasi dan loss model selama pelatihan dengan plot yang disajikan. Plot ini membantu kami menganalisis dan memahami performa model secara visual. 
-dan terakhir mencoba klasifikasi gambar,
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/06e5c2a4-9cc3-4a7e-8b0d-287f253c5c91)
-gambar 11
-penjelasan kode:
-Anda import filesnya dan juga imagenya, aploud adalah untuk meaploud filenya sehingga nantinya gambar bisa ke aploud dan untuk print, This image belongs to class adalah menampilkan keterangan gambar masuk bagian kelas apa, seperti gambar dibawah menerangkan jika masuk kelas kucing dari gambar kucing
-
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/604e28b5-b24e-44cb-928e-d39a80290aa9)
-(gambar 11)
-
-
-demikianlah laporan mengenai Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing, dengan menadapatkan gambar dan keterangan yang sesuai.
+dan terakhir mencoba klasifikasi gambar
 
 **---Ini adalah bagian akhir laporan---**
