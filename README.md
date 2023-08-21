@@ -55,7 +55,7 @@ Selanjutnya, _plt.legend()_ digunakan untuk menampilkan legenda di pojok kiri at
 Terakhir, _plt.show()_ digunakan untuk menampilkan plot akurasi.
 Plot ini membantu menganalisis dan memahami performa model secara visual. 
 Hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76, ini adalah hasil yang bagus karena Akurasi pelatihan sebesar 0.80 dan akurasi validasi sebesar 0.76 menunjukkan bahwa model dapat memprediksi dengan benar sekitar 80% data pelatihan dan 76% data validasi. Semakin tinggi akurasi, semakin baik performa model.
-Untuk loss pelatihan 0.41 dan loss validasi 0.53 nilai ini adalah hasil yang bagus, karena hasil ini menunjukkan bahwa model dapat meminimalkan kesalahan dalam memprediksi data. Semakin rendah loss, semakin baik performa model.
+Untuk loss pelatihan 0.41 dan loss validasi 0.53 nilai ini adalah hasil yang belum bagus, karena hasil ini menunjukkan bahwa model masih  memiliki kesalahan dengan nilai tinggi dalam memprediksi data. Semakin rendah loss, semakin baik performa model.
 
 Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung. 
 
