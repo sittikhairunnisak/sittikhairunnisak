@@ -56,9 +56,7 @@ Kemudian, plt.title() digunakan untuk memberikan judul plot sebagai "Akurasi Mod
 Selanjutnya, plt.legend() digunakan untuk menampilkan legenda di pojok kiri atau kanan atas plot.
 Terakhir, plt.show() digunakan untuk menampilkan plot akurasi.
 Plot ini membantu menganalisis dan memahami performa model secara visual. 
-Hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76 dan untuk loss pelatihan 0.41 dan loss validasi 0.53
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/2e335c89-b4bc-4bcc-ae0a-c739f4b8adcb)
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/51ce4102-cfab-41c2-9373-858d7833043e)
+Hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76 dan untuk loss pelatihan 0.41 dan loss validasi 0.53.
 
 Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung.
 
