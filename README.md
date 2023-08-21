@@ -35,6 +35,7 @@ Variabel dalam kumpulan data adalah gambar yang berupa kucing atau anjing. Gamba
 
 ## Data Preparation
 Data _Image generator_ digunakan untuk membuat gambar dari teks atau input data lainnya yang dapat membantu dalam pemrosesan data. _Image generator_ dapat membantu masalah pengolahan data, mampu membuat gambar tambahan dari yang sudah ada. Dengan menghasilkan gambar baru model dapat dilatih pada kumpulan data yang lebih besar dan beragam, yang dapat meningkatkan akurasinya. Langkah pertama adalah mengimpor pustaka yang diperlukan dengan cara import _imagedatagenerator._
+proses pembagian data menggunakan _training_ dan _validation_.
 tensorflow untuk membuat dan melatih model.
 ImageDataGenerator dari tensorflow.keras.preprocessing.image untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi dan menggunakan _ImageDataGenerator _untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi _rescaling_, _rotation_, _horizontal_ dan _vertical_,_ shearing_, _zooming_,_ width_shift_range_ dan , _height_shift_range_.     Setelah itu, menggunakan flow_from_directory untuk membuat generator pelatihan dan validasi. kita menentukan _class_mode_ yaitu _'categorical_'. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target_size.
  
@@ -47,13 +48,15 @@ _epoch_ 40 dan setiap jumlah _step epochnya_ 40, karena itu adalah jumlah yang p
 
 ## Evaluation
 untuk membuat plot yang menunjukkan perubahan akurasi dan loss model selama pelatihan adalah,
-Pertama, kami menggunakan plt.plot() untuk membuat plot garis untuk akurasi pelatihan dan akurasi validasi
+Pertama, menggunakan plt.plot() untuk membuat plot garis untuk akurasi pelatihan, loss pelatihan dan akurasi, loss validasi
 Hasil penerapan pada metrik evaluasi adalah memberikan informasi tentang performa model, seperti kemampuan model dalam mengklasifikasikan data dengan benar, jenis kesalahan yang dibuat, dan tingkat kebenaran dari proses klasifikasi sehingga mendapatkan hasil model terbaik
 Kemudian, plt.title() digunakan untuk memberikan judul plot sebagai "Akurasi Model".
-Selanjutnya, plt.legend() digunakan untuk menampilkan legenda ("train" dan "test") di pojok kiri atas plot.
+Selanjutnya, plt.legend() digunakan untuk menampilkan legenda di pojok kiri atau kanan atas plot.
 Terakhir, plt.show() digunakan untuk menampilkan plot akurasi.
-Dengan menggunakan kode ini, kita dapat memvisualisasikan perubahan akurasi dan loss model selama pelatihan dengan plot yang disajikan. Plot ini membantu kami menganalisis dan memahami performa model secara visual. 
-dan terakhir mencoba klasifikasi gambar
+begitupun untuk 
+kita dapat memvisualisasikan perubahan akurasi dan loss model selama pelatihan dengan plot yang disajikan. Plot ini membantu kami menganalisis dan memahami performa model secara visual. hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76 dan untuk loss pelatihan 0.41 dan loss validasi 0.53
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/2e335c89-b4bc-4bcc-ae0a-c739f4b8adcb)
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/51ce4102-cfab-41c2-9373-858d7833043e)
 
 Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung.
 
