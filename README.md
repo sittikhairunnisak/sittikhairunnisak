@@ -58,6 +58,6 @@ Terakhir, plt.show() digunakan untuk menampilkan plot akurasi.
 Plot ini membantu menganalisis dan memahami performa model secara visual. 
 Hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76 dan untuk loss pelatihan 0.41 dan loss validasi 0.53.
 
-Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung.
+Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung. 
 
 **---Ini adalah bagian akhir laporan---**
