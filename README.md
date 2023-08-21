@@ -4,7 +4,7 @@ Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing
 ## Domain Proyek
 Hewan merupakan makhluk hidup yang banyak masyarakat memelihara, hewan peliharaan terutama anjing dan kucing, karena memiliki karakter dan fungsi yang beragam dan menyenangkan manusia. Pada pengolahan citra, proses pengklasifikasian objek merupakan salah satu bagian permasalahan dalam _computer Vision_. Tujuan pengklasifikasian citra ini adalah proses memasukkan citra kedalam beberapa kategori yang disesuaikan dengan kebutuhan. Ide dari pengklasifikasian citra yang spesifik dengan memberi masukkan dari sekumpulan angka yang diproses dan menghasilkan angka yang merupakan representasi dari kategori citra tersebut, dan hasil dari klasifikasi citra digital dapat menjadi alternatif dalam mengenali hewan. Selain itu proses mengklasifikasikan citra anjing dan kucing ini diharapkan adalah komputer dapat mengenali dan membedakan objek pada citra selayaknya manusia[1]
 
-Pengenalan wajah menggunakan _machine learning _ sangat penting. Dengan menggunakan _machine learning_, teknologi pengenalan wajah dapat mencapai tingkat akurasi yang tinggi dalam mengenali wajah hewan (kucing dan anjing) atau wajah seseorang. Algoritme _machine learning _ seperti _neural network_ dapat meniru proses otak manusia dalam mengenali fitur-fitur khusus pada wajah, seperti jarak antara mata, tinggi dahi, lebar hidung, dan sebagainya. Algoritme _facial recognition_ dirancang untuk memetakan fitur wajah seseorang secara matematis.
+Pengenalan wajah menggunakan _machine learning_ sangat penting. Dengan menggunakan _machine learning_, teknologi pengenalan wajah dapat mencapai tingkat akurasi yang tinggi dalam mengenali wajah hewan (kucing dan anjing) atau wajah seseorang. Algoritme _machine learning_ seperti _neural network_ dapat meniru proses otak manusia dalam mengenali fitur-fitur khusus pada wajah, seperti jarak antara mata, tinggi dahi, lebar hidung, dan sebagainya. Algoritme _facial recognition_ dirancang untuk memetakan fitur wajah seseorang secara matematis.
 Selain itu Teknologi pengenalan wajah menggunakan _machine learning_ dapat diterapkan dalam berbagai bidang, seperti keamanan, pengenalan identitas, sehingga dapat digunakan untuk mendeteksi ancaman dan memprediksi risiko keamanan.
 
 ## Business Understanding
@@ -20,12 +20,12 @@ Permasalahan yang ada dalam proyek pengenalan wajah kucing dan anjing adalah
 Penyelesaian mengenai masalah diatas adalah dengan
 - langkah-langkah yaitu import beberapa _libraries_ yang dapat mendeteksi gambar. Lalu mendefinisikan ukuran gambar yang ingin diterapkan. Selanjutnya menggunakan dataset yang telah diperoleh untuk mendapatkan data yang dapat dilatih dari
 total data yang didapatkan
-- _Menvisualisasikan_ grafik keakuratan pada proses _training _hingga validasi data yang diperoleh. Dan menggunakan _Callback_ untuk mengurangi _overftting_
-- pencapaian % akurasi dihentikan ketika 80%, akurasi tidak boleh turun di bawah 80% untuk mencegah model dari _overfitting_ ke data pelatihan.
+- _Menvisualisasikan_ grafik keakuratan pada proses _training_ hingga validasi data yang diperoleh. Dan menggunakan _Callback_ untuk mengurangi _overftting_
+- pencapaian % akurasi dihentikan ketika 80%, karena akurasi tidak boleh turun di bawah 80% untuk mencegah model dari _overfitting_ ke data pelatihan.
 
 ## Data Understanding
 Data yang digunakan _mengimport_ dari _kaggle_ , https://www.kaggle.com/datasets/tongpython/cat-and-dog
-pertama Menentukan direktori, dari isi folder itu ada tiga yaitu bahan, latih dan validasi, lalu anda _print_ jumlah data yang terdiri dari dua kategori, yaitu anjing dan kucing, akan muncul keterangan kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar. Setiap data dalam kumpulan data _direpresentasikan_ dalam format file gambar seperti JPEG atau PNG. Setiap gambar memiliki ukuran dan resolusi yang berbeda. 
+pertama Menentukan direktori, dari isi folder itu ada tiga yaitu bahan, latih dan validasi, lalu  _print_ jumlah data yang terdiri dari dua kategori, yaitu anjing dan kucing, akan muncul keterangan kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar. Setiap data dalam kumpulan data _direpresentasikan_ dalam format file gambar seperti _JPEG_ atau _PNG_. Setiap gambar memiliki ukuran dan resolusi yang berbeda. 
 
 ### Variabel-variabel pada cats and dog dataset adalah sebagai berikut:
 Variabel dalam kumpulan data adalah gambar yang berupa kucing atau anjing. Gambar tersebut digunakan untuk melatih dan menguji algoritma pembelajaran mesin untuk mengklasifikasikan apakah suatu gambar berisi kucing atau anjing
@@ -37,7 +37,7 @@ Data _Image generator_ digunakan untuk membuat gambar dari teks atau input data 
 __Training set_ digunakan untuk melatih model dan mengoptimalkan parameter, sedangkan _testing set_ digunakan untuk menguji performa model yang telah dilatih pada data yang belum pernah dilihat sebelumnya. Rasio pembagian _dataset_ antara _training set_ dan _testing set_ adalah (90%:10%) menghasilkan _train_ 1821 dan hasil _validation_ 204 dari dua kelas.
 _tensorflow_ untuk membuat dan melatih model.
 _ImageDataGenerator_ dari _tensorflow.keras.preprocessing.image_ untuk augmentasi data dan menyiapkan generator data untuk pelatihan dan validasi dan menggunakan _ImageDataGenerator_ untuk melakukan augmentasi data pada gambar pelatihan. Beberapa augmentasi yang diterapkan meliputi _rescaling_ dengan nilai 1/255, _rotation_range_, 20 _horizontal_ dan _vertical_shearing_, 0.2 _zooming_, 0.1 
-_width_shift_range_ 0.2 dan , _height_shift_range_ 0.2. Setelah itu, menggunakan flow_from_directory untuk membuat generator pelatihan dan validasi. kita menentukan _class_mode_ yaitu _'categorical_'. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target _size._
+_width_shift_range_ 0.2 dan , _height_shift_range_ 0.2. Setelah itu, menggunakan _flow_from_directory_ untuk membuat generator pelatihan dan validasi. kita menentukan _class_mode_ yaitu _'categorical_'. Gambar juga diubah ukurannya menjadi 150x150 piksel menggunakan parameter target _size._
  
 ## Modeling
 Membuat model _cnn_ dengan jumlah _hidden_ layer tiga, terdapat tiga layer _Conv2D_ dan tiga layer _MaxPooling2D_.
@@ -55,7 +55,7 @@ Selanjutnya, _plt.legend()_ digunakan untuk menampilkan legenda di pojok kiri at
 Terakhir, _plt.show()_ digunakan untuk menampilkan plot akurasi.
 Plot ini membantu menganalisis dan memahami performa model secara visual. 
 Hasil yang didapatkan untuk akurasi pelatihan adalah 0.80 dan akurasi validasi 0.76, ini adalah hasil yang bagus karena Akurasi pelatihan sebesar 0.80 dan akurasi validasi sebesar 0.76 menunjukkan bahwa model dapat memprediksi dengan benar sekitar 80% data pelatihan dan 76% data validasi. Semakin tinggi akurasi, semakin baik performa model.
-Untuk loss pelatihan 0.41 dan loss validasi 0.53 nilai ini adalah hasil yang belum bagus, karena hasil ini menunjukkan bahwa model masih  memiliki kesalahan dengan nilai tinggi dalam memprediksi data. Semakin rendah loss, semakin baik performa model.
+Untuk _loss_ pelatihan 0.41 dan _loss_ validasi 0.53 nilai ini adalah hasil yang belum bagus, karena hasil ini menunjukkan bahwa model masih  memiliki kesalahan dengan nilai tinggi dalam memprediksi data. Semakin rendah loss, semakin baik performa model.
 
 Referensi: [1.] Suyanto, (2018), Machine Learning Tingkat Dasar dan Lanjut, Penerbit Informatika Bandung. 
 
