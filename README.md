@@ -36,9 +36,10 @@ Menentukan direktori, dari isi folder yaitu bahan, latih dan validasi, lalu anda
 Dataset terdiri dari sejumlah gambar kucing dan anjing. Jumlah pasti gambar dalam kumpulan data dapat bervariasi dan bergantung pada ukuran kumpulan data yang digunakan. 
 Setiap data dalam kumpulan data direpresentasikan dalam format file gambar seperti JPEG atau PNG. Setiap gambar memiliki ukuran dan resolusi yang berbeda.
 
-contoh visualisasi kucing ini merupakan bagian dari evaluation.
+contoh gambar anjing.
 
-![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/70e72744-0d42-4959-9393-489768df685d) 
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/b0b1cd14-57c2-4a24-9119-370aae1aa25a)
+
 (gambar 2)
 
 ### Variabel-variabel pada cats and dog dataset adalah sebagai berikut:
@@ -93,6 +94,17 @@ Pertama, kami menggunakan plt.plot() untuk membuat plot garis untuk akurasi pela
 Kemudian, plt.title() digunakan untuk memberikan judul plot sebagai "Akurasi Model".
 Selanjutnya, plt.legend() digunakan untuk menampilkan legenda ("train" dan "test") di pojok kiri atas plot.
 Terakhir, plt.show() digunakan untuk menampilkan plot akurasi.
-Dengan menggunakan kode ini, kita dapat memvisualisasikan perubahan akurasi dan loss model selama pelatihan dengan plot yang disajikan. Plot ini membantu kami menganalisis dan memahami performa model secara visual.
+Dengan menggunakan kode ini, kita dapat memvisualisasikan perubahan akurasi dan loss model selama pelatihan dengan plot yang disajikan. Plot ini membantu kami menganalisis dan memahami performa model secara visual. 
+dan terakhir mencoba klasifikasi gambar,
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/06e5c2a4-9cc3-4a7e-8b0d-287f253c5c91)
+gambar 11
+penjelasan kode:
+Anda import filesnya dan juga imagenya, aploud adalah untuk meaploud filenya sehingga nantinya gambar bisa ke aploud dan untuk print, This image belongs to class adalah menampilkan keterangan gambar masuk bagian kelas apa, seperti gambar dibawah menerangkan jika masuk kelas kucing dari gambar kucing
+
+![image](https://github.com/sittikhairunnisak/sittikhairunnisak/assets/132251307/604e28b5-b24e-44cb-928e-d39a80290aa9)
+(gambar 11)
+
+
+demikianlah laporan mengenai Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing, dengan menadapatkan gambar dan keterangan yang sesuai.
 
 **---Ini adalah bagian akhir laporan---**
