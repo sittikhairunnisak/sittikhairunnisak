@@ -5,19 +5,19 @@ Machine learning Klasifikasi Gambar, menentukan gambar kucing atau anjing
 Hewan merupakan makhluk hidup selalu ada di sekitar kita. Masyarakatpun banyak yang memelihara hewan peliharaan terutama anjing dan kucing, karena memiliki karakter dan fungsi yang beragam dan menyenangkan manusia. Pada pengolahan citra, proses pengklasifikasian objek merupakan salah satu bagian permasalahan dalam _computer Vision_. Tujuan pengklasifikasian citra ini adalah proses memasukkan citra kedalam beberapa kategori yang disesuaikan dengan kebutuhan. Ide dari pengklasifikasian citra yang spesifik dengan memberi masukkan dari sekumpulan angka yang diproses dan menghasilkan angka yang merupakan representasi dari kategori citra tersebut, dan hasil dari klasifikasi citra digital dapat menjadi alternatif dalam mengenali hewan. Selain itu proses mengklasifikasikan citra anjing dan kucing ini diharapkan adalah komputer dapat mengenali dan membedakan objek pada citra selayaknya manusia[1]
 
 Pengenalan wajah menggunakan machine learning sangat penting. Dengan menggunakan machine learning, teknologi pengenalan wajah dapat mencapai tingkat akurasi yang tinggi dalam mengenali wajah hewan (kucing dan anjing) atau wajah seseorang. Algoritma machine learning seperti _neural network_ dapat meniru proses otak manusia dalam mengenali fitur-fitur khusus pada wajah, seperti jarak antara mata, tinggi dahi, lebar hidung, dan sebagainya. Algoritma _facial recognition_ dirancang untuk memetakan fitur wajah seseorang secara matematis.
-selain itu Teknologi pengenalan wajah menggunakan machine learning dapat diterapkan dalam berbagai bidang, seperti keamanan, pengenalan identitas, sehingga dapat digunakan untuk mendeteksi ancaman dan memprediksi risiko keamanan.
+Selain itu Teknologi pengenalan wajah menggunakan machine learning dapat diterapkan dalam berbagai bidang, seperti keamanan, pengenalan identitas, sehingga dapat digunakan untuk mendeteksi ancaman dan memprediksi risiko keamanan.
 
 ## Business Understanding
-Adapun dampak positifnya dari masalah pengenalan wajah adalah dapat memudahkan dalam memantau aktivitas anjing atau kucing secara _real-time_. Hal ini dapat membantu pemilik hewan peliharaan untuk memastikan bahwa hewan peliharaan aman dan tidak melakukan hal-hal yang tidak diinginkan, dan juga meningkatkan keamanan, jadi pemilik hewan peliharaan dapat memastikan bahwa hanya anjing atau kucing yang dapat masuk ke dalam rumah atau area tertentu. Hal ini dapat membantu mencegah anjing atau kucing yang tidak diinginkan masuk ke dalam rumah dan mengganggu hewan peliharaan yang ada di dalamnya. dan dengan penerapan teknologi pengenalan otomatis menggunakan machine learning, diharapkan dapat memberikan kemudahan, keamanan, dan kenyamanan bagi pemilik hewan peliharaan dalam merawat dan memantau aktivitas hewan peliharaan.
+Adapun dampak positifnya dari masalah pengenalan wajah adalah dapat memudahkan dalam memantau aktivitas anjing atau kucing secara _real-time_. Hal ini dapat membantu pemilik hewan peliharaan untuk memastikan bahwa hewan peliharaan aman dan tidak melakukan hal-hal yang tidak diinginkan, dan juga meningkatkan keamanan, jadi pemilik hewan peliharaan dapat memastikan bahwa hanya anjing atau kucing yang dapat masuk ke dalam rumah atau area tertentu. Hal ini dapat membantu mencegah anjing atau kucing yang tidak diinginkan masuk ke dalam rumah dan mengganggu hewan peliharaan yang ada di dalamnya. Dengan penerapan teknologi pengenalan otomatis menggunakan machine learning, diharapkan dapat memberikan kemudahan, keamanan, dan kenyamanan bagi pemilik hewan peliharaan dalam merawat dan memantau aktivitas hewan peliharaan.
 
 ### Problem Statements
-permasalahan yang ada dalam proyek pengenalan wajah kucing dan anjing adalah
+Permasalahan yang ada dalam proyek pengenalan wajah kucing dan anjing adalah
 - bagaimana proses klasifikasi dengan CNN mampu menghasilkan deteksi objek citra anjing dan kucing serta membedakan modelnya?
 - Bagaimana penggunaan dataset training dengan resolusi citra (gambar) yang bagus dapat membuat model yang dipakai lebih baik dan mengurangi overfitting?
 - Berapa % capaian akurasi dan presisi sistem klasifikasi terhadap penganalan anjing dan kucing ?
 
 ### Goals
-penyelesaian mengenai masalah diatas adalah dengan
+Penyelesaian mengenai masalah diatas adalah dengan
 - langkah-langkah yaitu import beberapa libraries yang dapat mendeteksi gambar. Lalu mendefinisikan ukuran gambar yang ingin diterapkan. Selanjutnya menggunakan
 dataset dalam mengkategorikan anjing dan kucing. Selanjutnya menggunakan dataset yang telah diperoleh untuk mendapatkan data yang dapat dilatih dari
 total data yang didapatkan
@@ -25,7 +25,7 @@ total data yang didapatkan
 - pencapaian % akurasi dihentikan ketika 80%, akurasi tidak boleh turun di bawah 80% untuk mencegah model dari overfitting ke data pelatihan.
 
 ## Data Understanding
-data yang digunakan mengimport dari kaggle, https://www.kaggle.com/datasets/tongpython/cat-and-dog
+Data yang digunakan mengimport dari kaggle, https://www.kaggle.com/datasets/tongpython/cat-and-dog
 pertama Menentukan direktori, dari isi folder itu ada tiga yaitu bahan, latih dan validasi, lalu anda print jumlah data yang terdiri dari dua kategori, yaitu anjing dan kucing, akan muncul keterangan kategori kucing ada 1011 gambar dan untuk kategori anjing ada 1015 gambar. Setiap data dalam kumpulan data direpresentasikan dalam format file gambar seperti JPEG atau PNG. Setiap gambar memiliki ukuran dan resolusi yang berbeda. 
 
 ### Variabel-variabel pada cats and dog dataset adalah sebagai berikut:
